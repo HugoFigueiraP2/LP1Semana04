@@ -14,13 +14,17 @@ namespace Special
         private static int GetSpecial(int n)
         {
             int result;
+            if (n == 0)
+            {
+                return 0;
+            }
             if (n == 1)
             {
-                result = 1;
+                return 1;
             }
             else
-                result = 1-n + 2 * n;
-            return result;
+                result = GetSpecial(n-1) + 2 * GetSpecial(n-2);
+                return result;
         }
     }
 }
