@@ -6,15 +6,30 @@ namespace BetterDecorator
     {
         /// <summary>
         /// Buscar os 3 argumentos e converter em tipos de valor e referencia!
+        /// Caso o utilizador não associe argumentos na linha de comandos,
+        /// será impresso uma string usando os argumentos configurados
+        /// do metodo Decor().
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            string frase = args[0];
-            char type_of_char = char.Parse(args[1]);
-            int rep = int.Parse(args[2]);
+            if (args.Length != 3)
+            {
+                Console.WriteLine(Decor("User dit not specify args!", '=', 3));
+            }
+
+            else
+            {
+                string frase = args[0];
+                char type_of_char = char.Parse(args[1]);
+                int rep = int.Parse(args[2]);
             
-            Console.WriteLine(Decor(frase, type_of_char, rep));
+                Console.WriteLine(Decor(frase, type_of_char, rep));
+            }
+
+            
+
+            
         }
         
         /// <summary>
